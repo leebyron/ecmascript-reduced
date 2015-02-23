@@ -5,7 +5,7 @@
 **Author:** Lee Byron
 
 Short-circuiting from a `reduce` operation allows it to be more generically
-useful. Much of the clojure language is built on this premise.
+useful. Much of the clojure core library is built on this premise.
 
 ```js
 // Reduce a sum or "99+"

@@ -1,4 +1,4 @@
-# The *Reduced* Interface
+# Short-circuiting Array.prototype.reduce()
 
 **Stage:** 0, Strawman
 
@@ -79,6 +79,9 @@ This property has the attributes { [[Writable]]: **false**, [[Enumerable]]: **fa
           * iv. ReturnIfAbrupt(accumulator).
           * v. <ins>Let A be ToObject(accumulator).</ins>
           * vi. <ins>Let reducedPresent be HasProperty(A, @@reduced).</ins>
-          * vii. <ins>If reducedPresent is true, return Get(A, @@reduced).</ins>
+          * vii. <ins>If reducedPresent is true, then</ins>
+              1. <ins>Let reduced be Get(A, @@reduced).</ins>
+              2. <ins>ReturnIfAbrupt(reduced).</ins>
+              3. <ins>Return reduced.</ins>
       * e. Increase k by 1.
   11. Return accumulator.

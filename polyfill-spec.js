@@ -82,9 +82,13 @@ CreateMethodProperty(Array.prototype, 'reduce', function (callbackfn/*, initialV
       var A = ToObject(accumulator);
       // vi. <ins>Let reducedPresent be HasProperty(A, @@reduced).</ins>
       var reducedPresent = HasProperty(A, Symbol.reduced);
-      // vii. <ins>If reducedPresent is true, return Get(A, @@reduced).</ins>
+      // vii. <ins>If reducedPresent is true, then</ins>
       if (reducedPresent === true) {
-        return A[Symbol.reduced];
+        // 1. <ins>Let reduced be Get(A, @@reduced).</ins>
+        // 2. <ins>ReturnIfAbrupt(reduced).</ins>
+        var reduced = A[Symbol.reduced];
+        // 3. <ins>Return reduced.</ins>
+        return reduced;
       }
     }
     // e. Increase k by 1.

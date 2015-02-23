@@ -46,7 +46,7 @@ This property has the attributes { [[Writable]]: **false**, [[Enumerable]]: **fa
 ## 22.1.3  Properties of the Array Prototype Object
 
 ### 22.1.3.18  Array.prototype.reduce ( *callbackfn [ , initialValue ] )
-> This existing method has some alterations
+> This existing method has some additions: 10.d.v - 10.d.vii
 
   1. Let *O* be ToObject(this value).
   2. ReturnIfAbrupt(*O*).
